@@ -3,6 +3,8 @@
 </p>
 
 
+<marquee> ZANPRTMX AUTOSCRIPT BY ZANPRTM VPN </marque>
+
 
 ### INSTALL SCRIPT E
 <pre><code>apt install -y && apt update -y && apt upgrade -y && apt install lolcat -y && gem install lolcat && wget -q https://raw.githubusercontent.com/zanprtmvpn/vip/main/premi.sh && chmod +x premi.sh && ./premi.sh
