@@ -7,21 +7,19 @@
 <h2 align="center"> Supported Linux Distribution</h2>
 <p align="center"><img src="https://d33wubrfki0l68.cloudfront.net/5911c43be3b1da526ed609e9c55783d9d0f6b066/9858b/assets/img/debian-ubuntu-hover.png"></p>
 
+### OS SUPPORT 
+- UBUNTU 20.04
+- DEBIAN 10
+
 ### BUY ACCESS PREMISSION (IZIN IP VPS)
 
-### CONTACT WA wa.me//+6289652544283
+### CONTACT WA https://wa.me//+6289652544283
 
 
 
 ### INSTALL SCRIPT E
 <pre><code>apt install -y && apt update -y && apt upgrade -y && apt install lolcat -y && gem install lolcat && wget -q https://raw.githubusercontent.com/zanprtmvpn/vip/main/premi.sh && chmod +x premi.sh && ./premi.sh
 </code></pre>
-
-
-
-### OS SENG WES DIJAJAL
-- UBUNTU 20.04
-- DEBIAN 10
 
 ### FITUR-FITUR TAMBAHAN 
 - Tambah Swap 1GiB
