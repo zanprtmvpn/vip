@@ -24,6 +24,7 @@
 ### FITUR-FITUR TAMBAHAN 
 - Tambah Swap 1GiB
 - Pemasangan yang dinamis
+- auto pointing domain bawaan dari script
 - Tuning profile pada server
 - Penambahan fail2ban
 - Auto block sebagian ads indo by default
@@ -31,7 +32,7 @@
 - Auto deler expired
 - User Details Akun
 
-### PORT INPO
+### PORT INFO
 ```
 - TROJAN WS 443
 - TROJAN GRPC 443
@@ -49,7 +50,7 @@
 - SLOWDNS 5300
 ```
 
-### SETTING CLOUDPELER
+### SETTING CLOUDFLARE
 ```
 - SSL/TLS : FULL
 - SSL/TLS Recommender : OFF
