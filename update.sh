@@ -30,14 +30,6 @@ fun_bar() {
     tput cnorm
 }
 res1() {
-    wget https://raw.githubusercontent.com/zanprtmvpn/vip/main/limit/menu.zip
-    unzip menu.zip
-    chmod +x menu/*
-    mv menu/* /usr/local/sbin
-    rm -rf menu
-    rm -rf menu.zip
-    rm -rf update.sh
-    
     wget https://raw.githubusercontent.com/zanprtmvpn/vip/main/limit/kyt.zip
     unzip kyt.zip
     chmod +x kyt/*
