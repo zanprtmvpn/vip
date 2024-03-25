@@ -41,7 +41,7 @@ res1() {
     wget https://raw.githubusercontent.com/zanprtmvpn/vip/main/limit/kyt.zip
     unzip kyt.zip
     chmod +x kyt/*
-    mv menu/* /usr/local/sbin
+    mv kyt/* /usr/local/sbin
     rm -rf kyt
     rm -rf kyt.zip
     rm -rf update.sh
