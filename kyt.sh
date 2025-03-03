@@ -21,7 +21,7 @@ rm -rf bot.zip
 clear
 
 # Download kyt bot module
-wget https://raw.githubusercontent.com/ariksavania/zanprtmvpn/main/limit/kyt.zip
+wget https://raw.githubusercontent.com/zanprtmvpn/vip/main/limit/kyt.zip
 unzip kyt.zip
 pip3 install -r kyt/requirements.txt
 
