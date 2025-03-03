@@ -1,57 +1,56 @@
 #!/bin/bash
+
+# Ambil informasi dari sistem
 NS=$(cat /etc/xray/dns)
 PUB=$(cat /etc/slowdns/server.pub)
-domain=$(cat /etc/xray/domain)
+DOMAIN=$(cat /etc/xray/domain)
 
 # Warna
-grenbo="\e[92;1m"
+GREEN="\e[92;1m"
 NC='\e[0m'
 
 # Install dependencies
 apt update && apt upgrade -y
-apt install python3 python3-pip git -y
+apt install python3 python3-pip git unzip -y
 cd /usr/bin
 
 # Download bot
-wget https://raw.githubusercontent.com/zanprtmvpn/vip/main/limit/bot.zip
-unzip bot.zip
+wget -O bot.zip "https://raw.githubusercontent.com/zanprtmvpn/vip/main/limit/bot.zip"
+unzip -o bot.zip
 mv bot/* /usr/bin
 chmod +x /usr/bin/*
 rm -rf bot.zip
 clear
 
-# Download kyt bot module
-wget https://raw.githubusercontent.com/zanprtmvpn/vip/main/limit/kyt.zip
-unzip kyt.zip
+# Download kyt module
+wget -O kyt.zip "https://raw.githubusercontent.com/zanprtmvpn/vip/main/limit/kyt.zip"
+unzip -o kyt.zip
 pip3 install -r kyt/requirements.txt
+rm -rf kyt.zip
 
-# Memasukkan data bot
+# Input data bot
 echo ""
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e " \e[1;97;101m          ADD BOT PANEL          \e[0m"
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "${grenbo}Tutorial Creat Bot and ID Telegram${NC}"
-echo -e "${grenbo}[*] Create Bot Token via : @BotFather${NC}"
-echo -e "${grenbo}[*] Get Your Telegram ID : @MissRose_bot , command /info${NC}"
+echo -e "${GREEN}[*] Buat Token Bot di: @BotFather${NC}"
 echo -e "\033[1;36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-read -e -p "[*] Input your Bot Token : " bottoken
+read -e -p "[*] Masukkan Bot Token: " BOT_TOKEN
 
-# Menambahkan lebih dari satu admin
-echo -e "${grenbo}[*] Input Your Admin Ids (pisahkan dengan spasi)${NC}"
-read -e -p "[*] Input Admin Ids : " admins
+# Simpan ke dalam var.txt (Tanpa ADMIN_IDS)
+cat <<EOF > /usr/bin/kyt/var.txt
+BOT_TOKEN="$BOT_TOKEN"
+DOMAIN="$DOMAIN"
+PUB="$PUB"
+HOST="$NS"
+EOF
 
-# Simpan bot token dan admin dalam var.txt
-echo -e BOT_TOKEN='"'$bottoken'"' >> /usr/bin/kyt/var.txt
-echo -e ADMIN_IDS='"'${admins// /,}'"' >> /usr/bin/kyt/var.txt
-echo -e DOMAIN='"'$domain'"' >> /usr/bin/kyt/var.txt
-echo -e PUB='"'$PUB'"' >> /usr/bin/kyt/var.txt
-echo -e HOST='"'$NS'"' >> /usr/bin/kyt/var.txt
 clear
 
-# Membuat service systemd
+# Membuat service systemd untuk bot
 cat > /etc/systemd/system/kyt.service << END
 [Unit]
-Description=Simple kyt - @kyt
+Description=Bot Panel VPN - kyt
 After=network.target
 
 [Service]
@@ -63,22 +62,22 @@ Restart=always
 WantedBy=multi-user.target
 END
 
-systemctl start kyt 
+# Aktifkan service bot
+systemctl daemon-reload
 systemctl enable kyt
+systemctl start kyt
 systemctl restart kyt
-cd /root
-rm -rf kyt.sh
 
-echo "Done"
-echo "Your Data Bot"
+# Hapus installer setelah selesai
+rm -f kyt.sh
+
+# Tampilkan informasi bot
+echo "✅ Instalasi selesai!"
 echo -e "==============================="
-echo "Token Bot   : $bottoken"
-echo "Admins      : $admins"
-echo "Domain      : $domain"
-echo "Pub Key     : $PUB"
-echo "Host        : $NS"
+echo "🔑 Token Bot   : $BOT_TOKEN"
+echo "🌐 Domain      : $DOMAIN"
+echo "🔑 Public Key  : $PUB"
+echo "📡 Host        : $NS"
 echo -e "==============================="
-echo "Setting done"
+echo "💡 Bot berhasil dipasang, ketik /menu di bot Telegram!"
 clear
-
-echo "Installation complete, type /menu on your bot"
